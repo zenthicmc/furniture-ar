@@ -15,7 +15,7 @@ app.get('/camera', (req, res) => {
 })
 
 app.use((req, res, next) => {
-   res.status(404).send('<h1>404 Not Found</h1>');
+	res.sendFile(__dirname + '/public' + req.path)
 })
 
 app.listen(port, () => {
