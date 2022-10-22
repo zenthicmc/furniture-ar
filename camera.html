@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Aplikasi AR Kelompok 2</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<script src="./js/vendor/aframe.min.js"></script>
+	<script src="./js/vendor/aframe-ar.js"></script>
+	<script src="./js/vendor/zingtouch.min.js"></script>
+	<script src="./js/3d-ops.js"></script>
+	<script src="./js/ar-cam.js"></script>
+	<script src="./js/image-processor.js"></script>
+	<script src="./js/ui-utils.js"></script>
+	<link rel="stylesheet" href="./css/styles.css">
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+    <div class="overlay" id="fullscreen-overlay">
+        <div class="lato">enter fullscreen</div>
+        <button id="fullscreen-button" onclick="requestFullScreen()"></button>
+        <div class="lato">for the best experience</div>
+    </div>
+    <div class="overlay" id="loading-overlay">
+        <div class="cssload-wrap">
+            <div class="cssload-cssload-spinner"></div>
+        </div>
+    </div>
+    <div class="overlay" id="rotate-overlay">
+        <div class="phone shadow">
+            <div class="screen"></div>
+        </div>
+        <div class="phone rotate90">
+            <div class="screen"></div>
+        </div>
+        <div class="arrow-wrap">
+            <div class="arrow-circle">
+                <div class="arrow"></div>
+            </div>
+            <div class="arrow-head"></div>
+        </div>
+        <span class="lato">rotate device</span>
+    </div>
+    <div class="overlay" id="snap-overlay">
+        <span class="lato">capturing...</span>
+    </div>
+    <div class="overlay" id="preview-overlay">
+        <div class="preview-container">
+            <img id="preview-img" src="" alt="preview">
+            <div class="preview-actions">
+                <span class="lato">preview</span>
+                <button id="save-capture-button">save</button>
+                <button id="retake-button">retake</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div id="log"></div> -->
+    <section class="log" style="display: none;">
+        <div id="positionLog">Position: 0 -0.75 0</div>
+        <div id="rotationLog">Rotation: 0 0 0</div>
+        <div id="zoomLog">Scale: 0.35</div>
+    </section>
+    <section class="controls">
+        <button id="move-button" class="toggler" onclick="toggleMove()"></button>
+        <button id="snap-button" onclick="getSnap()"></button>
+        <button id="rotate-button" class="toggler" onclick="toggleRotate()"></button>
+    </section>
+    <a-scene id="scene" embedded arjs='sourceType: webcam; debugUIEnabled: false;sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960;' vr-mode-ui="enabled: false"
+        renderer="antialias: true; logarithmicDepthBuffer: true; colorManagement: true; sortObjects: true;">
+        <a-marker preset="custom" type="pattern" smooth="true" url="./assets/custom-marker/jagad.patt">
+            <a-entity position="0 0 0" rotation="270 0 0">
+                <a-entity id='theModel' position="0 -0.5 0" rotation="0 0 0" scale="8 8 8"
+                    gltf-model="./assets/3d-models/doggy.glb">
+                </a-entity>
+            </a-entity>
+        </a-marker>
+        <a-entity id="camera" camera></a-entity>
+    </a-scene>
+</body>
+<script>
+var elem = document.documentElement;
+
+/* View in fullscreen */
+function openFullscreen() {
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE11 */
+    elem.msRequestFullscreen();
+  }
+}
+
+function closeFullscreen() {
+  if (document.exitFullscreen) {
+    document.exitFullscreen();
+  } else if (document.webkitExitFullscreen) { /* Safari */
+    document.webkitExitFullscreen();
+  } else if (document.msExitFullscreen) { /* IE11 */
+    document.msExitFullscreen();
+  }
+}
+
+</script>
+</html> 
