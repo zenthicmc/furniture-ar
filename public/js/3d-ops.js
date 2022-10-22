@@ -59,3 +59,28 @@ function toggleRotate()
 
     rotateMode = !rotateMode;
 }
+
+const elem = document.documentElement;
+const fullButton = document.getElementById('full-screen');
+
+function toggleFullScreen() {
+    if (!document.fullscreenElement) {
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.webkitRequestFullscreen) {
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) {
+            elem.msRequestFullscreen();
+        }
+        fullButton.classList.add('toggle-active');
+    } else {
+        if (document.exitFullscreen) {
+            document.exitFullscreen();
+        } else if (document.webkitExitFullscreen) {
+            document.webkitExitFullscreen();
+        } else if (document.msExitFullscreen) {
+            document.msExitFullscreen();
+        }
+        fullButton.classList.remove('toggle-active');
+    }
+}
