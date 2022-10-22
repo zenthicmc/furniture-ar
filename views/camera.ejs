@@ -4,14 +4,14 @@
 <head>
 	<title>Aplikasi AR Kelompok 2</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-	<script src="./js/vendor/aframe.min.js"></script>
-	<script src="./js/vendor/aframe-ar.js"></script>
-	<script src="./js/vendor/zingtouch.min.js"></script>
-	<script src="./js/3d-ops.js"></script>
-	<script src="./js/ar-cam.js"></script>
-	<script src="./js/image-processor.js"></script>
-	<script src="./js/ui-utils.js"></script>
-	<link rel="stylesheet" href="./css/styles.css">
+	<script src="/js/vendor/aframe.min.js"></script>
+	<script src="/js/vendor/aframe-ar.js"></script>
+	<script src="/js/vendor/zingtouch.min.js"></script>
+	<script src="/js/3d-ops.js"></script>
+	<script src="/js/ar-cam.js"></script>
+	<script src="/js/image-processor.js"></script>
+	<script src="/js/ui-utils.js"></script>
+	<link rel="stylesheet" href="/css/styles.css">
 </head>
 
 <body style="margin : 0px; overflow: hidden;">
@@ -71,6 +71,13 @@
             <a-entity position="0 0 0" rotation="270 0 0">
                 <a-entity id='theModel' position="0 -0.5 0" rotation="0 0 0" scale="8 8 8"
                     gltf-model="/3d-models/doggy.glb">
+                </a-entity>
+            </a-entity>
+        </a-marker>
+        <a-marker preset="hiro" smooth="true">
+            <a-entity position="0 0 0" rotation="270 0 0">
+                <a-entity id='theModel' position="0 -0.5 0" rotation="0 0 0" scale="12.5 12.5 12.5"
+                    gltf-model="/3d-models/Bee.glb">
                 </a-entity>
             </a-entity>
         </a-marker>
