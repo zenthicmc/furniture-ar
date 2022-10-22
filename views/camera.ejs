@@ -65,9 +65,11 @@
         <button id="move-button" class="toggler" onclick="toggleMove()"></button>
         <button id="snap-button" onclick="getSnap()"></button>
         <button id="rotate-button" class="toggler" onclick="toggleRotate()"></button>
-        <!-- <button id="full-screen" class="full-button btn toggler" onclick="toggleFullScreen()">
+    </section>
+    <section class="fullscreen" id="full-screen">
+        <button class="full-button btn" onclick="toggleFullScreen()">
             <i class="fa-solid fa-expand text-white" style="font-size: 25px;"></i>
-        </button> -->
+        </button>
     </section>
     <a-scene id="scene" embedded arjs='sourceType: webcam; debugUIEnabled: false;sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960;' vr-mode-ui="enabled: false"
         renderer="antialias: true; logarithmicDepthBuffer: true; colorManagement: true; sortObjects: true;">
