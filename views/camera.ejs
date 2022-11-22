@@ -82,13 +82,13 @@
         </a-marker>
 
 
-		<a-marker preset='hiro'>
-			<a-box position='0 0.5 0' material='opacity: 0.5; side: double;color:red;'>
-				<a-torus-knot radius='0.26' radius-tubular='0.05'
-				animation="property: rotation; to:360 0 0; dur: 5000; easing: linear; loop: true">
-				</a-torus-knot>
-			</a-box>
-		</a-marker>
+		<a-marker preset="custom" type="pattern" smooth="true" url="/custom-marker/kursi-kantor.patt">
+            <a-entity position="0 0 0" rotation="270 0 0">
+                <a-entity id='theModel' position="0 -0.5 0" rotation="0 0 0" scale="3 3 3"
+                    gltf-model="/3d-models/kursi-kantor.glb">
+                </a-entity>
+            </a-entity>
+        </a-marker>
 
         <a-entity id="camera" camera></a-entity>
     </a-scene>
