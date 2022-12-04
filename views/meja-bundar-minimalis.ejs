@@ -1,0 +1,89 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Aplikasi AR Kelompok 2</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+	<script src="/js/vendor/aframe.min.js"></script>
+	<script src="/js/vendor/aframe-ar.js"></script>
+	<script src="/js/vendor/zingtouch.min.js"></script>
+	<script src="/js/ar-cam.js"></script>
+	<script src="/js/image-processor.js"></script>
+	<script src="/js/ui-utils.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://kit.fontawesome.com/b632dc8495.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="/css/styles.css">
+</head>
+
+<body style="margin : 0px; overflow: hidden;">
+    <div class="overlay" id="fullscreen-overlay">
+        <div class="lato">enter fullscreen</div>
+        <button id="fullscreen-button" onclick="requestFullScreen()"></button>
+        <div class="lato">for the best experience</div>
+    </div>
+    <div class="overlay" id="loading-overlay">
+        <div class="cssload-wrap">
+            <div class="cssload-cssload-spinner"></div>
+        </div>
+    </div>
+    <div class="overlay" id="rotate-overlay">
+        <div class="phone shadow">
+            <div class="screen"></div>
+        </div>
+        <div class="phone rotate90">
+            <div class="screen"></div>
+        </div>
+        <div class="arrow-wrap">
+            <div class="arrow-circle">
+                <div class="arrow"></div>
+            </div>
+            <div class="arrow-head"></div>
+        </div>
+        <span class="lato">rotate device</span>
+    </div>
+    <div class="overlay" id="snap-overlay">
+        <span class="lato">capturing...</span>
+    </div>
+    <div class="overlay" id="preview-overlay">
+        <div class="preview-container">
+            <img id="preview-img" src="" alt="preview">
+            <div class="preview-actions">
+                <span class="lato">preview</span>
+                <button id="save-capture-button">save</button>
+                <button id="retake-button">retake</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div id="log"></div> -->
+    <section class="log" style="display: none;">
+        <div id="positionLog">Position: 0 -0.75 0</div>
+        <div id="rotationLog">Rotation: 0 0 0</div>
+        <div id="zoomLog">Scale: 0.35</div>
+    </section>
+    <section class="controls">
+        <button id="move-button" class="toggler" onclick="toggleMove()"></button>
+        <button id="snap-button" onclick="getSnap()"></button>
+        <button id="rotate-button" class="toggler" onclick="toggleRotate()"></button>
+    </section>
+    <section class="fullscreen" id="full-screen">
+        <button class="full-button btn" onclick="toggleFullScreen()">
+            <i class="fa-solid fa-expand text-white" style="font-size: 25px;"></i>
+        </button>
+    </section>
+    <a-scene id="scene" embedded arjs='sourceType: webcam; debugUIEnabled: false;sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960;' vr-mode-ui="enabled: false"
+        renderer="antialias: true; logarithmicDepthBuffer: true; colorManagement: true; sortObjects: true;">
+
+        <a-marker preset="custom" type="pattern" smooth="true" url="/custom-marker/meja-bulat.patt">
+            <a-entity position="0 0 0" rotation="0 0 0">
+                <a-entity id='theModel' position="0 -0.5 0" rotation="0 0 0" scale="1 1 1"
+                    gltf-model="/3d-models/round-table.glb">
+                </a-entity>
+            </a-entity>
+        </a-marker>
+
+        <a-entity id="camera" camera></a-entity>
+    </a-scene>
+    <script src="/js/3d-ops.js"></script>
+</body>
+</html>
