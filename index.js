@@ -13,8 +13,16 @@ app.get('/', (req, res) => {
 	res.render('index')
 })
 
-app.get('/camera', (req, res) => {
-	res.render('camera')
+app.get('/katalog/kursi-kantor-modern', (req, res) => {
+	res.render('kursi-kantor-modern')
+})
+
+app.get('/katalog/kursi-kantor-exclusive', (req, res) => {
+	res.render('kursi-kantor-exclusive')
+})
+
+app.get('/katalog/meja-bundar-minimalis', (req, res) => {
+	res.render('meja-bundar-minimalis')
 })
 
 app.listen(port, () => {
