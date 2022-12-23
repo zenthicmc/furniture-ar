@@ -77,23 +77,23 @@
   <main id="main">
     <section id="about" class="recent-posts sections-bg">
       <div class="container mt-5 mb-5" data-aos="fade-up">
-			<div class="d-flex justify-content-center">
+			<div class="detail-row">
 				<div class="col-md-4">
 					<img src="/img/<%= image %>" class="detail-image">
 				</div>
 			
-				<div class="col-md-6 ms-5 mt-5">
+				<div class="col-md-6 ms-lg-5 mt-5">
 					<h1 class="fw-bold"><%= title %></h1>
 					<h5 class="fst-italic text-success"><%= price %></h5>
-					<p class="text-muted mt-3 mb-4"><%= desc %></p>
+					<p class="text-muted mt-3 mb-3"><%= desc %></p>
 					<div class="row">
-						<div class="col-md-4">
+						<div class="col-md-4 mt-2">
 							<button class="btn btn-outline-success w-100">
 								<i class="fa fa-shopping-cart" aria-hidden="true"></i>
 								&nbsp;Buy
 							</button>
 						</div>
-						<div class="col-md-4">
+						<div class="col-md-4 mt-2">
 							<a href="/katalog/<%= slug %>" class="btn btn-success w-100">
 								<i class="fa fa-camera" aria-hidden="true"></i>
 								&nbsp;Scan
